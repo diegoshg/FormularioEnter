@@ -4,6 +4,8 @@
  */
 package com.mycompany.loggincentrado;
 
+import java.awt.event.KeyEvent;
+
 /**
  *
  * @author Alumno
@@ -66,13 +68,24 @@ public class Principal extends javax.swing.JFrame {
 
         jPasswordField1.setBackground(new java.awt.Color(255, 255, 255));
         jPasswordField1.setText("jPasswordField1");
+        jPasswordField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPasswordField1KeyPressed(evt);
+            }
+        });
         loggin.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, 165, 30));
 
         jTextField1.setBackground(new java.awt.Color(255, 255, 255));
         jTextField1.setText("diego@gamil.com");
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField1KeyPressed(evt);
+            }
+        });
         loggin.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 244, 141, 37));
 
         jButton1.setText("Acceder");
+        jButton1.setEnabled(false);
         loggin.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 420, 223, 48));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -111,6 +124,19 @@ public class Principal extends javax.swing.JFrame {
     private void jLabel3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MousePressed
         System.exit(0);
     }//GEN-LAST:event_jLabel3MousePressed
+
+    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            jPasswordField1.requestFocus();
+        }
+    }//GEN-LAST:event_jTextField1KeyPressed
+
+    private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            jButton1.requestFocus();
+            jButton1.setEnabled(false);
+        }
+    }//GEN-LAST:event_jPasswordField1KeyPressed
 
     /**
      * @param args the command line arguments
